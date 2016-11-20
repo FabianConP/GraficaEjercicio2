@@ -7,7 +7,7 @@ var loadedGoogleCount = 0;
 var gFontsUpdateCacheList = [];
 var tFontsUpdateCacheList = [];
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[0,1473,256,256],[401,1348,256,256],[888,1945,134,82],[0,1731,141,84],[0,1901,408,123],[258,1473,131,426],[659,1570,40,21],[410,1949,256,80],[401,1278,200,63],[904,0,114,109],[888,1028,114,109],[659,1473,99,95],[0,514,512,512],[514,510,450,193],[544,1731,132,200],[410,1731,132,216],[391,1606,374,123],[659,1348,285,123],[0,1153,632,123],[0,1028,886,123],[514,0,388,313],[634,1153,376,193],[0,1278,399,193],[514,315,478,193],[668,1933,48,48],[514,900,411,126],[767,1473,143,244],[767,1719,119,255],[0,0,512,512],[514,705,423,193],[888,1719,132,224]]}
+		{name:"index_atlas_", frames: [[258,639,256,256],[0,639,256,256],[268,897,134,82],[750,514,141,84],[1062,830,408,123],[516,760,131,426],[1726,260,40,21],[1418,195,256,80],[1676,195,200,63],[634,514,114,109],[1905,503,114,109],[893,514,99,95],[514,0,512,512],[1028,440,450,193],[134,897,132,200],[0,897,132,216],[1472,830,374,123],[649,888,285,123],[0,514,632,123],[1028,315,886,123],[634,635,631,123],[1028,0,388,313],[1668,635,376,193],[1267,635,399,193],[1418,0,478,193],[1676,260,48,48],[649,760,411,126],[1898,0,143,244],[1916,246,119,255],[0,0,512,512],[1480,440,423,193],[1848,830,132,224]]}
 ];
 
 
@@ -211,79 +211,86 @@ lib.tfontAvailable = function(family, totalTypekitCount) {
 
 
 
-(lib.mapsite = function() {
+(lib.mapasitio = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(20);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.nivel1 = function() {
+(lib.mapsite = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(21);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.nivel2 = function() {
+(lib.nivel1 = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(22);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.perdiste = function() {
+(lib.nivel2 = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(23);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.sitemap = function() {
+(lib.perdiste = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(24);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.titulo = function() {
+(lib.sitemap = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(25);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.tree_oak = function() {
+(lib.titulo = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(26);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.tree_pine = function() {
+(lib.tree_oak = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(27);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.twitter = function() {
+(lib.tree_pine = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(28);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.volver = function() {
+(lib.twitter = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(29);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.water1 = function() {
+(lib.volver = function() {
 	this.spriteSheet = ss["index_atlas_"];
 	this.gotoAndStop(30);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.water1 = function() {
+	this.spriteSheet = ss["index_atlas_"];
+	this.gotoAndStop(31);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
@@ -5835,12 +5842,15 @@ p.nominalBounds = new cjs.Rectangle(0,17,660,224);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.shape_2},{t:this.instance_10},{t:this.text_3},{t:this.instance_9}]},7).to({state:[]},1).wait(1));
 
 	// sitemap
-	this.instance_11 = new lib.mapsite();
+	this.instance_11 = new lib.mapasitio();
 	this.instance_11.parent = this;
-	this.instance_11.setTransform(199,146,0.47,0.527);
-	this.instance_11._off = true;
+	this.instance_11.setTransform(122,33,0.503,0.592);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_11).wait(8).to({_off:false},0).wait(1));
+	this.instance_12 = new lib.mapsite();
+	this.instance_12.parent = this;
+	this.instance_12.setTransform(199,146,0.47,0.527);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_12},{t:this.instance_11}]},8).wait(1));
 
 	// restart
 	this.restart = new lib.restart_anim();
@@ -5851,27 +5861,27 @@ p.nominalBounds = new cjs.Rectangle(0,17,660,224);
 	this.timeline.addTween(cjs.Tween.get(this.restart).wait(3).to({_off:false},0).wait(6));
 
 	// game_over copia
-	this.instance_12 = new lib.game_over_anim();
-	this.instance_12.parent = this;
-	this.instance_12.setTransform(291,226.7,0.69,0.682,0,0,0,164.5,72.4);
-	this.instance_12._off = true;
+	this.instance_13 = new lib.game_over_anim();
+	this.instance_13.parent = this;
+	this.instance_13.setTransform(291,226.7,0.69,0.682,0,0,0,164.5,72.4);
+	this.instance_13._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(3).to({_off:false},0).to({_off:true},1).wait(5));
+	this.timeline.addTween(cjs.Tween.get(this.instance_13).wait(3).to({_off:false},0).to({_off:true},1).wait(5));
 
 	// win
-	this.instance_13 = new lib.juan();
-	this.instance_13.parent = this;
-	this.instance_13.setTransform(110,194,0.386,0.463);
-
-	this.instance_14 = new lib.chicken();
+	this.instance_14 = new lib.juan();
 	this.instance_14.parent = this;
-	this.instance_14.setTransform(220,80,0.469,0.523);
+	this.instance_14.setTransform(110,194,0.386,0.463);
 
-	this.instance_15 = new lib.win_anim();
+	this.instance_15 = new lib.chicken();
 	this.instance_15.parent = this;
-	this.instance_15.setTransform(277.1,54.5,0.649,0.535,0,0,0,156.5,77.5);
+	this.instance_15.setTransform(220,80,0.469,0.523);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_15},{t:this.instance_14},{t:this.instance_13}]},4).to({state:[]},1).wait(4));
+	this.instance_16 = new lib.win_anim();
+	this.instance_16.parent = this;
+	this.instance_16.setTransform(277.1,54.5,0.649,0.535,0,0,0,156.5,77.5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_16},{t:this.instance_15},{t:this.instance_14}]},4).to({state:[]},1).wait(4));
 
 	// sound
 	this.sound_back_object = new lib.back_sound();
@@ -5897,9 +5907,9 @@ p.nominalBounds = new cjs.Rectangle(0,17,660,224);
 	this.timeline.addTween(cjs.Tween.get(this.timer_clock2).wait(2).to({_off:false},0).to({_off:true},1).wait(6));
 
 	// score
-	this.instance_16 = new lib.duck_target_white();
-	this.instance_16.parent = this;
-	this.instance_16.setTransform(17,17,0.428,0.395);
+	this.instance_17 = new lib.duck_target_white();
+	this.instance_17.parent = this;
+	this.instance_17.setTransform(17,17,0.428,0.395);
 
 	this.score = new cjs.Text("13", "40px 'Bauhaus 93'", "#FFFFFF");
 	this.score.name = "score";
@@ -5908,7 +5918,7 @@ p.nominalBounds = new cjs.Rectangle(0,17,660,224);
 	this.score.parent = this;
 	this.score.setTransform(65.8,15.8);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.score},{t:this.instance_16}]},1).to({state:[]},1).wait(7));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.score},{t:this.instance_17}]},1).to({state:[]},1).wait(7));
 
 	// score2
 	this.score2 = new cjs.Text("26", "40px 'Bauhaus 93'", "#FFFFFF");
@@ -5918,25 +5928,25 @@ p.nominalBounds = new cjs.Rectangle(0,17,660,224);
 	this.score2.parent = this;
 	this.score2.setTransform(65.8,15.8);
 
-	this.instance_17 = new lib.duck_target_white();
-	this.instance_17.parent = this;
-	this.instance_17.setTransform(17,17,0.428,0.395);
+	this.instance_18 = new lib.duck_target_white();
+	this.instance_18.parent = this;
+	this.instance_18.setTransform(17,17,0.428,0.395);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_17},{t:this.score2}]},2).to({state:[]},1).wait(6));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_18},{t:this.score2}]},2).to({state:[]},1).wait(6));
 
 	// curtains
-	this.instance_18 = new lib.curtains();
-	this.instance_18.parent = this;
-	this.instance_18.setTransform(379.5,185.9,1,1,0,0,0,388.5,185.9);
+	this.instance_19 = new lib.curtains();
+	this.instance_19.parent = this;
+	this.instance_19.setTransform(379.5,185.9,1,1,0,0,0,388.5,185.9);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_18).wait(9));
+	this.timeline.addTween(cjs.Tween.get(this.instance_19).wait(9));
 
 	// water_row_2
-	this.instance_19 = new lib.water_row();
-	this.instance_19.parent = this;
-	this.instance_19.setTransform(330,430,1,1,0,0,0,330,112);
+	this.instance_20 = new lib.water_row();
+	this.instance_20.parent = this;
+	this.instance_20.setTransform(330,430,1,1,0,0,0,330,112);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_19).to({_off:true},3).wait(6));
+	this.timeline.addTween(cjs.Tween.get(this.instance_20).to({_off:true},3).wait(6));
 
 	// duck_row1
 	this.duck_row = new lib.ducks_row_1();
@@ -5950,11 +5960,11 @@ p.nominalBounds = new cjs.Rectangle(0,17,660,224);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.duck_row}]},1).to({state:[{t:this.duck_row2}]},1).to({state:[]},1).wait(6));
 
 	// water_row_1
-	this.instance_20 = new lib.water_row_2();
-	this.instance_20.parent = this;
-	this.instance_20.setTransform(269,371,1,1,0,0,0,330,112);
+	this.instance_21 = new lib.water_row_2();
+	this.instance_21.parent = this;
+	this.instance_21.setTransform(269,371,1,1,0,0,0,330,112);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_20).to({_off:true},3).wait(6));
+	this.timeline.addTween(cjs.Tween.get(this.instance_21).to({_off:true},3).wait(6));
 
 	// duck_row_2
 	this.duck_row3 = new lib.duck_row_3();
@@ -5965,32 +5975,32 @@ p.nominalBounds = new cjs.Rectangle(0,17,660,224);
 	this.timeline.addTween(cjs.Tween.get(this.duck_row3).wait(2).to({_off:false},0).to({_off:true},1).wait(6));
 
 	// clouds
-	this.instance_21 = new lib.clouds();
-	this.instance_21.parent = this;
-	this.instance_21.setTransform(280,105,1,1,0,0,0,186,42);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_21).wait(9));
-
-	// trees
-	this.instance_22 = new lib.trees();
+	this.instance_22 = new lib.clouds();
 	this.instance_22.parent = this;
-	this.instance_22.setTransform(268.5,243.3,1,1,0,0,0,253.5,128.5);
+	this.instance_22.setTransform(280,105,1,1,0,0,0,186,42);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_22).wait(9));
 
-	// grass
-	this.instance_23 = new lib.grass();
+	// trees
+	this.instance_23 = new lib.trees();
 	this.instance_23.parent = this;
-	this.instance_23.setTransform(330,270,1,1,0,0,0,330,108);
+	this.instance_23.setTransform(268.5,243.3,1,1,0,0,0,253.5,128.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_23).wait(9));
 
-	// wall_wood
-	this.instance_24 = new lib.wall_wood();
+	// grass
+	this.instance_24 = new lib.grass();
 	this.instance_24.parent = this;
-	this.instance_24.setTransform(384,256,1,1,0,0,0,384,256);
+	this.instance_24.setTransform(330,270,1,1,0,0,0,330,108);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_24).wait(9));
+
+	// wall_wood
+	this.instance_25 = new lib.wall_wood();
+	this.instance_25.parent = this;
+	this.instance_25.setTransform(384,256,1,1,0,0,0,384,256);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_25).wait(9));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(214,200,829,542);
@@ -6003,7 +6013,7 @@ lib.properties = {
 	opacity: 1.00,
 	webfonts: {},
 	manifest: [
-		{src:"images/index_atlas_.png?1479610882625", id:"index_atlas_"}
+		{src:"images/index_atlas_.png?1479612349420", id:"index_atlas_"}
 	],
 	preloads: []
 };
